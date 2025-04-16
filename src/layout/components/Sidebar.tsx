@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHome, FaCog, FaInfoCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -15,31 +16,31 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
       <div className="flex h-full flex-col items-center p-2">
         <ul className="w-full space-y-4">
           <li className="flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="flex w-full items-center space-x-2 rounded-lg p-2 hover:bg-gray-700"
             >
               <FaHome size={25} />
               {isOpen && <span>Home</span>}
-            </a>
+            </Link>
           </li>
           <li className="flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              to="dropdown/"
               className="flex w-full items-center space-x-2 rounded-lg p-2 hover:bg-gray-700"
             >
               <FaCog size={25} />
-              {isOpen && <span>Settings</span>}
-            </a>
+              {isOpen && <span>Dropdown</span>}
+            </Link>
           </li>
           <li className="flex items-center justify-center">
-            <a
-              href="#"
+            <Link
+              to="/input-box"
               className="flex w-full items-center space-x-2 rounded-lg p-2 hover:bg-gray-700"
             >
               <FaInfoCircle size={25} />
-              {isOpen && <span>About</span>}
-            </a>
+              {isOpen && <span>Input Box</span>}
+            </Link>
           </li>
         </ul>
       </div>

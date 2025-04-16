@@ -1,24 +1,23 @@
-import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
+import HomePage from "./pages/HomePage";
+import DropdownPage from "./pages/DropdownPage";
+import InputBoxPage from "./pages/InputBoxPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/dropdown", element: <DropdownPage /> },
+      { path: "/input-box", element: <InputBoxPage /> },
+    ],
+  },
+]);
 
 const App = () => {
-  return (
-    <MainLayout>
-      <div>
-        <h1 className="mb-4 text-2xl font-bold">Welcome to the App</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-        <div style={{ height: "2000px" }}>
-          {/* Simulating long content */}
-          <p>Scroll down to see the effect.</p>
-        </div>
-      </div>
-    </MainLayout>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import { Outlet } from "react-router-dom";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
-
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
 
   const toggleSidebar = () => {
@@ -21,7 +18,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <div
           className={`p-4transition-all flex-1 overflow-y-auto bg-gray-100 ${isSidebarOpen ? "ml-64" : "ml-16"}`}
         >
-          <main className="p-4">{children}</main>
+          <main className="p-4">
+            <Outlet />
+          </main>
         </div>
       </div>
     </div>
