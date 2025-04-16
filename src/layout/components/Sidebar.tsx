@@ -12,8 +12,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         isOpen ? "w-64" : "w-16"
       }`}
     >
-      <div className="flex h-full flex-col items-center">
-        <ul className="mt-4 w-full space-y-4">
+      <div className="flex h-full flex-col items-center p-2">
+        <ul className="w-full space-y-4">
           <li className="flex items-center justify-center">
             <a
               href="#"
